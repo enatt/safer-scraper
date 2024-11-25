@@ -9,7 +9,7 @@ from file_reader import file_parser
 pytesseract.pytesseract.tesseract_cmd = r'tesseract.exe'
 cotd_count = 0
 # Loading in file names through helper
-file_names = file_parser("./safer")
+file_names = file_parser("./safer2023")
 
 ### Helper functions
 def parse_license_names(license_names):
@@ -36,6 +36,7 @@ def parse_number_lines(all_lines):
     line_numbers = [sub.replace("pi", "2") for sub in line_numbers]
     line_numbers = [sub.replace("af", "27") for sub in line_numbers]
     line_numbers = [sub.replace("Z", "2") for sub in line_numbers]
+    line_numbers = [sub.replace("a2", "22") for sub in line_numbers]
 
     # Filtering for no extra numbers at bottom of page
     line_numbers = line_numbers[:8]
