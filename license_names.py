@@ -79,7 +79,7 @@ license_dict = {"Acupuncture Practice Act": ["Acupuncture CE Sponsor", "Licensed
                 "Real Estate Appraiser Licensing Act of 2002": ["Certified General Real Estate Appraiser", "Certified Residential Real Estate Appraiser", "Associate Real Estate Trainee Appraiser", "Temporary Practice Real Estate Appraiser", "Appraiser Education Provider"],
                 "Appraisal Management Company Registration Act": ["Appraisal Management Company"],
                 "Auction License Act": ["Auctioneer", "Auction Firm", "Auction Continuing Education School"],
-                "Community Association Manager Licensing and": ["Community Association Manager"],
+                "Community Association Manager Licensing and": ["Community Association Manager", "Community Association Firm"],
                 "Home Inspector License Act": ["Home Inspector", "Home Inspector Entity", "Home Inspector Education Provider"],
                 "Real Estate License Act of 2000": ["Real Estate Managing Broker", "Real Estate Broker", "Residential Leasing Agent", "Residential Leasing Agent Permit"],
                 "Real Estate License Act of 2000 (cont’d)": ["Real Estate Entity or Firm", "Real Estate Branch Office", "Real Estate Education Provider", "Real Estate Education Provider Instructor"]
