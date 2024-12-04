@@ -28,7 +28,7 @@ def parse_number_lines(all_lines):
     line_numbers = [x for x in all_lines if re.search(r'\d',x)]
     line_numbers = [x for x in line_numbers if "Act" not in x]
 
-    # Adding check for weird "e" issue here
+    # Replacing commonly misidentified characters
     line_numbers = [sub.replace("e)", "5") for sub in line_numbers]
     line_numbers = [sub.replace("c |", "3") for sub in line_numbers]
     line_numbers = [sub.replace("Zo", "29") for sub in line_numbers]
@@ -37,6 +37,14 @@ def parse_number_lines(all_lines):
     line_numbers = [sub.replace("af", "27") for sub in line_numbers]
     line_numbers = [sub.replace("Z", "2") for sub in line_numbers]
     line_numbers = [sub.replace("a2", "22") for sub in line_numbers]
+    line_numbers = [sub.replace("Fe", "73") for sub in line_numbers]
+    line_numbers = [sub.replace("ae", "22") for sub in line_numbers]
+    line_numbers = [sub.replace("eal", "51") for sub in line_numbers]
+    line_numbers = [sub.replace("52]", "527") for sub in line_numbers]
+    line_numbers = [sub.replace("a5", "35") for sub in line_numbers]
+    line_numbers = [sub.replace("5S2", "582") for sub in line_numbers]
+    line_numbers = [sub.replace("b)", "3") for sub in line_numbers]
+    line_numbers = [sub.replace("=)", "5") for sub in line_numbers]
 
     # Filtering for no extra numbers at bottom of page
     line_numbers = line_numbers[:8]
@@ -59,7 +67,6 @@ for f in file_names:
 
     # Getting line numbers
     line_numbers = parse_number_lines(lines)
-
     # Once we have all the lines with numbers, we turn it into a pandas df
     export_pd = pd.DataFrame(columns=["Measure"]+l_names)
     measures = ["Total Number of Applicants", "Number of Applicants with a Conviction", "Number of Licenses Granted", "Applicants with a Conviction Granted a License", "Number of Applicants Denied Licensure",
@@ -83,6 +90,7 @@ for f in file_names:
 # Making some corrections, exporting to CSV
 final_pd = pd.concat(outputs, axis=1)
 final_pd = final_pd.replace(["i", "010", "2}"], [1, "0/0", 27])
+final_pd = final_pd.replace(to_replace=r'^[a-zA-Z]+$', value=np.nan, regex=True)
 final_pd = final_pd.transpose()
 final_pd.to_csv("scraped_table.csv")
 
