@@ -33,11 +33,11 @@ Consult the [pytesseract documentation](https://pypi.org/project/pytesseract/), 
 - [Error when executing pytesseract to get the text from image](https://python-forum.io/thread-15111.html)
 - [Unicode errors in pytesseract](https://github.com/madmaze/pytesseract/issues/26)
 
-#### Some of the rows are blank in my scraped_table.csv, what happened? ####
+#### Some of the cells are blank in my scraped_table.csv, what happened? ####
 Sometimes the scraper runs into a character it can't read. In such cases, it will return blanks/NAs. 
 
 #### I'm getting "key errors" when trying to read license names ####
-The file ```license_dict.py``` includes a dictionary mapping acts to the occupations they regulate. As regulated occupations change each year, the dictionary in ```license_dict.py``` must change as well. It is currently configured for the most recent SAFER report (2023). If running the scraper on previous years, alter the dictionary accordingly (further instructions in ```license_dict.py```). 
+The file ```license_dict.py``` includes a dictionary mapping acts to the occupations they regulate. As regulated occupations change each year, the dictionary in ```license_dict.py``` must change as well. It is currently configured for the most recent SAFER report (2023). If running the scraper on other years, alter the dictionary accordingly (further instructions in ```license_dict.py```). 
 
 #### Something isn't working! Help! ####
 Feel free to submit an Issue on this GitHub page, or contact me at enattinger@uchicago.edu
