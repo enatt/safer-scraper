@@ -2,6 +2,7 @@
 This scraper is built to read information from the Illinois Department of Financial and Professional Regulation (IDFPR)'s annual SAFER reports. It is built using pytesseract in Python. 
 
 ## Setup ##
+Note: For the 2023 SAFER report, all of this setup has been done. Only complete these steps if running the scraper on a different SAFER report.
 ### Document Format ###
 The SAFER reports are distributed in PDF format. For the scraper to function, it must be ran on images in .JPG format. Complete the following steps to prepare the images. 
 1. Save a version of the SAFER report including only pages with information tables
@@ -35,6 +36,9 @@ Consult the [pytesseract documentation](https://pypi.org/project/pytesseract/), 
 
 #### Some of the cells are blank in my scraped_table.csv, what happened? ####
 Sometimes the scraper runs into a character it can't read. In such cases, it will return blanks/NAs. 
+
+#### Some of the values for "Number of Licenses Granted an Expungement" appear in my .csv/Excel document as a date? ####
+This occurs when the value takes a form that Excel assumes is a date (such as "1/2" becoming "Jan-2"). This is due to Excel automatic data type conversion. In the Pandas dataframe, this conversion does not take place and all values correctly appear as fractions. To fix this issue in Excel, one has to manually change the cell's value (e.g., change "Mar to "2/4"). 
 
 #### I'm getting "key errors" when trying to read license names ####
 The file ```license_dict.py``` includes a dictionary mapping acts to the occupations they regulate. As regulated occupations change each year, the dictionary in ```license_dict.py``` must change as well. It is currently configured for the most recent SAFER report (2023). If running the scraper on other years, alter the dictionary accordingly (further instructions in ```license_dict.py```). 
